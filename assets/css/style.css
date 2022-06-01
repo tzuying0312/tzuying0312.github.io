@@ -23,6 +23,19 @@ a:hover {
   text-decoration: none;
 }
 
+ul.tableofcontent {
+  color: #a8a9b4;
+}
+
+ul.tableofcontent a{
+  color: #a8a9b4;
+}
+
+ul.tableofcontent a:hover {
+  color: #37b3ed;
+  text-decoration: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Serif TC", "Raleway", sans-serif;
 }
@@ -287,6 +300,7 @@ section {
 }
 .section-title p {
   margin-bottom: 0;
+  line-height:30px;
 }
 
 /*--------------------------------------------------------------
