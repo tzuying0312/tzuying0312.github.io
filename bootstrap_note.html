@@ -34,7 +34,7 @@
     <header id="header">
         <div class="d-flex flex-column">
             <div class="profile">
-                <img src="assets/img/icon/bootstrap.png" alt="" class="img-fluid rounded-circle">
+                <img src="assets/img/icon/bootstrap.jpeg" alt="" class="img-fluid rounded-circle">
                 <h1 class="text-light"><a href="index.html">Bootstrap</a></h1>
             </div>
             <nav id="navbar" class="nav-menu navbar">
@@ -74,67 +74,90 @@
                 </div>
                 <div class="section-title">
                     <h2 id="install">Install</h2>
-                    <h5 id="download-from-cdn">Download From CDN</h5>
-                    <p>因為是載入別人的主機，所以流量部分不會算自己的，且會根據使用者所在地連到距離最近的主機，所以速度不會是問題。</p>
-                    <script src="https://gist.github.com/tzuying0312/54838b71a1ab6ffafacaa486df97956e.js"></script>
-                    </br>
-                    <h5 id="download-to-local">Download To Local</h5>
-                    <p>至 <a
-                            href="https://getbootstrap.com/docs/5.2/getting-started/download/">https://getbootstrap.com/docs/5.2/getting-started/download/</a>下載，可以客製化修改一些程式碼，ex:button
-                        的顏色或是 radius，可下載部分或全部。</p>
+                    <div>
+                        <h5 id="download-from-cdn">Download From CDN</h5>
+                        <p>因為是載入別人的主機，所以流量部分不會算自己的，且會根據使用者所在地連到距離最近的主機，所以速度不會是問題。</p>
+                        <script src="https://gist.github.com/tzuying0312/54838b71a1ab6ffafacaa486df97956e.js"></script>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="download-to-local">Download To Local</h5>
+                        <p>至 <a
+                                href="https://getbootstrap.com/docs/5.2/getting-started/download/">https://getbootstrap.com/docs/5.2/getting-started/download/</a>下載，可以客製化修改一些程式碼，ex:button
+                            的顏色或是 radius，可下載部分或全部。</p>
+                    </div>
                 </div>
                 <div class="section-title">
                     <h2 id="usage">Usage</h2>
-                    <h5 id="layout-breakpoint">Layout - BreakPoint</h5>
-                    <p>在特定容器內會觸發，像是寬度小於多少或是高度小於多少隱藏，ex: <code>d-xl-none</code> 當視窗小於 1200 px會出現，並且可以搭配
-                        <code>none</code>、<code>inline</code>、<code>inline-block</code>。如下：
-                    </p>
-                    <ul>
-                        <li><code>.d-{value}</code> for <code>xs</code></li>
-                        <li><code>.d-{breakpoint}-{value}</code> for <code>sm</code>, <code>md</code>, <code>lg</code>,
-                            <code>xl</code> and <code>xxl</code>
-                        </li>
-                    </ul>
-                    </br>
-                    <h5 id="layout-container">Layout - Container</h5>
-                    <p>Containers are the most basic layout element in Bootstrap and are required when using our default
-                        grid system. ，因此不管怎樣外面都要包一個 class 為container，這樣才可以使用 grid 或是 column。如下：</p>
-                    <script src="https://gist.github.com/tzuying0312/b51c97308b4fff469036ee29ebdc1149.js"></script>
-                    </br>
-                    <h5 id="layout-grid">Layout - Grid</h5>
-                    <p>Grid System 是經由 Row 和 Column 來組合，並每列由 12 個 column 組成。若格數滿了就會排在下一排，一行可以未滿 12，但超過會在下一行。</p>
-                    <script src="https://gist.github.com/tzuying0312/c25baa61bb0f0d63197ade3a68fbf798.js"></script>
-                    <p>同時，也可以設定符合裝置大小的 Column，ex: 設定電腦版一列有 4 行，設定手機版一列有 2 行。如下：</p>
-                    <p><code>col-4</code> 代表這個 div,column 要佔版面多少，此表示一列有 3 行(因爲一個占 4，最多 12，12/4=3)</p>
-                    <p><code>col-md-4</code> 代表的是在平板（md：768px）以上</p>
-                    <p><code>col-lg-4</code> 代表的是在電腦版（lg：992px）以上</p>
-                    <script src="https://gist.github.com/tzuying0312/0f6d5ca50d9eecf0ab77cd469c65ed5f.js"></script>
-                    <img src="./assets/img/note/bootstrap_grid.png" width="50%" />
-                    <br></br>
-                    <h5 id="layout-column">Layout - Column</h5>
-                    <ul>
-                        <li>Columns build on the grid’s flexbox architecture, When building grid layouts, all content
-                            goes in columns. ，因此透過新增
-                            <code>align-items-start</code>、<code>align-items-center</code>、<code>align-items-end</code>
-                            來安排 row 的位置。</li>
-                        <img src="./assets/img/note/bootstrap_align.png" width="35%" />
-                        <li>Offsetting Columns，將 Column 向右移，意即向左填補空格。</li>
-                        <script src="https://gist.github.com/tzuying0312/1e745e9da5d93993f98342dc4241d0fe.js"></script>
-                        <img src="./assets/img/note/bootstrap_offset.png" width="50%" />
-                    </ul>
-                    </br>
-                    <h5 id="components">Components</h5>
-                    <p>直接取用他們html即可。另外想改變顏色的話，可以在裡面新增 style 快速更動。</p>
-                    </br>
-                    <h5 id="bootstrap-icons">Bootstrap Icons</h5>
-                    <p>可至 <a href="https://icons.getbootstrap.com/">Bootstrap Icon</a>，透過 copy html可以快速實現製造 icon
-                        然後有各式各樣實用的 icon。</p>
+                    <div>
+                        <h5 id="layout-breakpoint">Layout - BreakPoint</h5>
+                        <p>在特定容器內會觸發，像是寬度小於多少或是高度小於多少隱藏，ex: <code>d-xl-none</code> 當視窗小於 1200 px會出現，並且可以搭配
+                            <code>none</code>、<code>inline</code>、<code>inline-block</code>。如下：
+                        </p>
+                        <ul>
+                            <li><code>.d-{value}</code> for <code>xs</code></li>
+                            <li><code>.d-{breakpoint}-{value}</code> for <code>sm</code>, <code>md</code>,
+                                <code>lg</code>,
+                                <code>xl</code> and <code>xxl</code>
+                            </li>
+                        </ul>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="layout-container">Layout - Container</h5>
+                        <p>Containers are the most basic layout element in Bootstrap and are required when using our
+                            default
+                            grid system. ，因此不管怎樣外面都要包一個 class 為container，這樣才可以使用 grid 或是 column。如下：</p>
+                        <script src="https://gist.github.com/tzuying0312/b51c97308b4fff469036ee29ebdc1149.js"></script>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="layout-grid">Layout - Grid</h5>
+                        <p>Grid System 是經由 Row 和 Column 來組合，並每列由 12 個 column 組成。若格數滿了就會排在下一排，一行可以未滿 12，但超過會在下一行。</p>
+                        <script src="https://gist.github.com/tzuying0312/c25baa61bb0f0d63197ade3a68fbf798.js"></script>
+                        <p>同時，也可以設定符合裝置大小的 Column，ex: 設定電腦版一列有 4 行，設定手機版一列有 2 行。如下：</p>
+                        <p><code>col-4</code> 代表這個 div,column 要佔版面多少，此表示一列有 3 行(因爲一個占 4，最多 12，12/4=3)</p>
+                        <p><code>col-md-4</code> 代表的是在平板（md：768px）以上</p>
+                        <p><code>col-lg-4</code> 代表的是在電腦版（lg：992px）以上</p>
+                        <script src="https://gist.github.com/tzuying0312/0f6d5ca50d9eecf0ab77cd469c65ed5f.js"></script>
+                        <img src="./assets/img/note/bootstrap_grid.png" width="50%" />
+                        <br></br>
+                    </div>
+                    <div>
+                        <h5 id="layout-column">Layout - Column</h5>
+                        <ul>
+                            <li>Columns build on the grid’s flexbox architecture, When building grid layouts, all
+                                content
+                                goes in columns. ，因此透過新增
+                                <code>align-items-start</code>、<code>align-items-center</code>、<code>align-items-end</code>
+                                來安排 row 的位置。
+                            </li>
+                            <img src="./assets/img/note/bootstrap_align.png" width="35%" />
+                            <li>Offsetting Columns，將 Column 向右移，意即向左填補空格。</li>
+                            <script
+                                src="https://gist.github.com/tzuying0312/1e745e9da5d93993f98342dc4241d0fe.js"></script>
+                            <img src="./assets/img/note/bootstrap_offset.png" width="50%" />
+                        </ul>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="components">Components</h5>
+                        <p>直接取用他們 html 即可。另外想改變顏色的話，可以在裡面新增 style 快速更動。</p>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="bootstrap-icons">Bootstrap Icons</h5>
+                        <p>可至 <a href="https://icons.getbootstrap.com/">Bootstrap Icon</a>，透過 copy html 可以快速實現製造 icon
+                            然後有各式各樣實用的 icon。</p>
+                    </div>
                 </div>
                 <div class="section-title">
                     <h2 id="resource">Resource</h2>
-                    <p><a href="https://getbootstrap.com/">Bootstrap 官網</a></p>
-                    <p><a href="https://guiblogs.com/21day-bootstrap5-2/">Layout 參考資料</a></p>
-                    <p><a href="https://icons.getbootstrap.com/">Bootstrap Icon</a></p>
+                    <ul>
+                        <li><a href="https://getbootstrap.com/">Bootstrap 官網</a></li>
+                        <li><a href="https://guiblogs.com/21day-bootstrap5-2/">Layout 參考資料</a></li>
+                        <li><a href="https://icons.getbootstrap.com/">Bootstrap Icon</a></li>
+                    </ul>
                 </div>
             </section>
         </div>
@@ -177,14 +200,5 @@
     <script src="assets/js/main.js"></script>
 
 </body>
-<style>
-    pre {
-        counter-reset: line-numbering;
-        background: #2c3e50;
-        padding: 12px 0px 14px 0;
-        width: 1000px;
-        color: #ecf0f1;
-        line-height: 140%;
-    }
-</style>
+
 </html>

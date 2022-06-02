@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Django</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= Mobile nav toggle button ======= -->
+    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="d-flex flex-column">
+            <div class="profile">
+                <img src="assets/img/icon/django.png" alt="" class="img-fluid rounded-circle">
+                <h1 class="text-light"><a href="index.html">Django</a></h1>
+            </div>
+            <nav id="navbar" class="nav-menu navbar">
+                <ul>
+                    <li><a href="index.html" class="nav-link scrollto"><i class="bx bx-user"></i><span>Home</span></a>
+                </ul>
+            </nav>
+            <ul class="tableofcontent">
+                <li><a href="#background">Background</a></li>
+                <li><a href="#install">Install</a>
+                    <ul>
+                        <li><a href="#install-package">下載套件</a></li>
+                        <li><a href="#create-project">建立 Project</a></li>
+                        <li><a href="#create-app">建立 App</a></li>
+                        <li><a href="#run-server">啟動 Server</a></li>
+                    </ul>
+                </li>
+                <li><a href="#usage">Usage</a>
+                    <ul>
+                        <li><a href="#url-dispatcher">Django URL Dispatcher</a></li>
+                        <li><a href="#django-model">Django Model</a></li>
+                        <li><a href="#django-queryset">Django QuerySet</a></li>
+                        <li><a href="#django-manage-static-files">Django Manage static files</a></li>
+                        <li><a href="#django-link-to-other-pages">Django Link to other pages</a></li>
+                        <li><a href="#django-sessions">Django Sessions</a></li>
+                        <li><a href="#django-administration">Django Administration</a></li>
+                    </ul>
+                </li>
+                <li><a href="#question">Question</a>
+                    <ul>
+                        <li><a href="#template-does-not-exist">template does not exist</a></li>
+                        <li><a href="#django-no-such-table-django-session">Django no such table django session</a></li>
+                    </ul>
+                </li>
+                <li><a href="#resource">Resource</a></li>
+            </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <div class="container">
+            <section>
+                <div class="section-title">
+                    <h2 id="background">Background</h2>
+                    <p>Django 是一個 Python 網路框架，可以快速開發安全和可維護的網站，類似 Flask，但功能叫 Flask 完善許多。</p>
+                </div>
+                <div class="section-title">
+                    <h2 id="install">Install</h2>
+                    <div>
+                        <h5 id="install-package">下載套件</h5>
+                        <p><code>pip install django</code></p>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="create-project">建立 Project</h5>
+                        <p><code>django-admin startproject potrip .</code> 建立一個 project 叫 potrip，結構如下。</p>
+                        <pre>
+
+    ├── manage.py # 用來管理整個 Django 專案，像是啟動本地端伺服器、連接資料庫及建立應用程式(APP)等
+    └── potrip
+        ├── __init__.py # 告訴 Python potrip是一個套件
+        ├── asgi.py # 提供非同步的功能。
+        ├── settings.py # Django 專案的設定檔(像 secret key、database、template engine、app 等) 原始設定是 SQLite
+        ├── urls.py # 各個應用程式(APP)的網址(就是哪個路徑要用哪個 function 去處理)
+        └── wsgi.py # 提供 Django 網站和伺服器間的標準介面(通常不會動這個檔案)
+                    </pre>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="create-app">建立 App</h5>
+                        <p><code>python manage.py startapp myapp</code> 建立一個 app 叫 myapp，可以發現在資料夾中有新的檔案，結構如下。</p>
+                        <pre>
+
+    ├── manage.py
+    ├── myapp
+    │   ├── __init__.py 
+    │   ├── admin.py # 可以用來定義或客製化這個應用程式(APP)在 Django 後台(Django Administration)的欄位顯示方式
+    │   ├── apps.py # 應用程式的設定檔
+    │   ├── migrations # 記錄資料庫與 models.py 中的欄位同步歷程
+    │   │   └── __init__.py
+    │   ├── models.py # 定義 Django 應用程式的資料庫欄位
+    │   ├── tests.py # 能夠撰寫 Django 應用程式的自動化測試腳本
+    │   └── views.py # 負責接收瀏覽器的請求，進行邏輯的處理後，回傳執行結果給瀏覽器
+    └── potrip
+        ├── __init__.py
+        ├── __pycache__
+        │   ├── __init__.cpython-37.pyc
+        │   └── settings.cpython-37.pyc
+        ├── asgi.py
+        ├── settings.py
+        ├── urls.py
+        └── wsgi.py
+                    </pre>
+                        <p>此時，為了要讓 project 知道有一個 app，因此要在把這個新的 app 加到 project 裡，修改 potrip/settings.py，如下。</p>
+                        <pre>
+
+    # /potrip/settings.py
+    INSTALLED_APPS = (
+        'myapp', # myapp.apps.PostsConfig 也可以，讓 potrip 知道有 myapp 的存在
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+    )
+    
+    # 補充：settings.py 常會使用到 DATABSES 參數
+    # DATABSES 定義了使用的資料庫。預設會使用 db.sqlite3 這個 SQLite 資料庫。
+                    </pre>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="run-server">啟動 Server</h5>
+                        <p>啟動 server 前，有在 DB 做異動時，例如新建一個 Model，就必須執行以下指令，目的是確保 code 與 database 的狀態。</p>
+                        <ul>
+                            <li>執行 <code>python manage.py makemigrations</code> 來看哪些地方有做更動(這邊還不會做更新)</li>
+                            <li>執行 <code>python manage.py migrate</code> migration 會把 database 調整到符合現在 code 的狀態，並記錄在
+                                <code>myapp/migrations/</code> 底下。
+                            </li>
+                            <li>執行 <code>python manage.py runserver</code> 就可以至 <code>http://127.0.0.1:8000/</code> 看到畫面
+                            </li>
+                            <li>若想跟換 port 如 8080 則可執行 <code>python manage.py runserver 8080</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-title">
+                    <h2 id="usage">Usage</h2>
+                    <div>
+                        <h5 id="url-dispatcher">Django URL Dispatcher</h5>
+                        <ul>
+                            <li>Flask 寫法</li>
+                            <script src="https://gist.github.com/tzuying0312/b88c9a08d92e32dd187e6e60588604f2.js"></script>
+                            <li>Django 寫法</li>
+                            <script src="https://gist.github.com/tzuying0312/e6a82b21e4290bc88f8a7e2cc553b176.js"></script>
+                            <li>把 URL 加在應用程式(APP)</li>
+                            <p>在 myapp 資料夾底下建立 urls.py。</p>
+                            <pre>
+
+    # myapp/urls.py
+    from django.urls import path
+    from . import views  # 引用這個資料夾中的 views 檔案
+    urlpatterns = [
+        # 表示 http://127.0.0.1:8000/myapp/overview 會進入 index 的 function 處理
+        path('overview', views.index) 
+    ]
+                            </pre>
+                            <li>把 URL 加在 project 設定</li>
+                            <p>應用程式(APP)的網址定義完成後，接下來就要註冊到 Django 專案主程式(potrip)，讓它知道有 posts 這個應用程式(APP)的存在。</p>
+                            <pre>
+
+    from django.contrib import admin
+    from django.urls import path, include
+    
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('myapp/', include('myapp.urls')) # 新增應用程式的網址
+    ]
+    
+    # 透過 include 函式，即可將應用程式(APP)中的所有網址註冊到 Django 專案主程式(potrip)中
+    # 當使用者存取 http://127.0.0.1:8000/myapp/ 開頭的網址時，
+    # Django 就知道要去找 myapp 應用程式(APP)中的網址。
+                            </pre>
+                        </ul>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="django-model">Django Model</h5>
+                        <p>這邊就像是建立一個 DB Schema。</p>
+                        <pre>
+
+    from django.db import models
+    from django.utils import timezone
+
+    class Post(models.Model):
+        title = models.CharField(max_length=200) # 這是一個字串，有上限數字
+        text = models.TextField() # 這是一個無上限的字串
+        created_date = models.DateTimeField(default=timezone.now)
+        published_date = models.DateTimeField(blank=True, null=True)
+                        </pre>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="django-queryset"> Django QuerySet</h5>
+                        <p>QuerySet 允許你從資料庫中讀取資料，也可以對資料做篩選或排序。打開終端機輸入 <code>python manage.py shell</code>，進入互動介面，再匯入
+                            Law_report 就可以看到目前的資料。</p>
+                        <pre>
+
+    from law.models import Law_report
+    Law_report.objects.all()
+    Law_report.objects.filter(firstName = "Vaibhav").delete() # 刪除
+                        </pre>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="django-manage-static-files">Django Manage static files</h5>
+                        <p>和 flask 依樣需要先告知 static file，django 是在 setting.py 告知
+                            <code>STATIC_URL = 'static/'</code>，之後就可以在html裡面使用如下
+                            記得要先 load 你的 file name，以及放入圖片位置如以下圖片位置 my_app/static/my_app/example.jpg。</p>
+                        <script src="https://gist.github.com/tzuying0312/ad8fab64b90f2dee1bbe365bd0c0abd3.js"></script>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="django-link-to-other-pages">Django Link to other pages</h5>
+                        <p>也是和上面差不多，是在 urls.py 做設定。</p>
+                        <pre>
+
+    app_name = 'tool'
+    urlpatterns = [
+        path('mygraph', views.graph, name='graph'),
+        path('', views.index, name='index')
+    ]
+                        </pre>
+                        <p>在 html 做取用的話就是底下，使用 app 名稱 tool，然後 name 為 index 的網址，如下。</p>
+                        <script src="https://gist.github.com/tzuying0312/7d132cae50e489f8b1460f3d85589ee9.js"></script>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="django-sessions">Django Sessions</h5>
+                        <ul>
+                            <li>存取 server 端資料</li>
+                            <li>像是 Cookie 或是 ID 等等</li>
+                        </ul>
+                        <pre>
+
+    from django.contrib.sessions.backends.db import SessionStore                       
+    request.session['page'] = page
+    page = request.session.get('page', True)
+                            </pre>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="django-administration">Django Administration</h5>
+                        <ul>
+                            <li>admin.py 主要用來註冊資料模型(Model)及客製化 Django Administration(管理員後台)的顯示方式。</li>
+                            <li>如果想要把 Django 專案中的應用程式(APP) 資料模型(Model)，加入到 Django Administration(管理員後台)，可以透過應用程式(APP)底下的
+                                admin.py 檔案來達成。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-title">
+                    <h2 id="question">Question</h2>
+                    <h5 id="template-does-not-exist">template does not exist</h5>
+                    <ol type="1">
+                        <li>檢查 setting 中 INSTALLED_APPS。</li>
+                        <pre>
+
+    INSTALLED_APPS = [
+        'Your_AppName',
+        'django.contrib.admin', ...
+    ]
+                        </pre>
+                        <li>檢查 setting 中 template 的路徑是不是有加上。</li>
+                        <pre>
+
+    TEMPLATE_DIRS = (
+        PROJECT_PATH + '/templates/',
+    )
+                        </pre>
+                    </ol>
+                    </br>
+                    <h5 id="django-no-such-table-django-session">Django no such table django session</h5>
+                    <p>這種問題，在事先需要先 init。</p>
+                    <pre>
+
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py runserver
+                    </pre>
+                </div>
+                <div class="section-title">
+                    <h2 id="resource">Resource</h2>
+                    <ul>
+                        <li><a href="https://docs.djangoproject.com/en/3.2/ref/models/querysets/">QuerySet API reference
+                        </li>
+                        <li><a href="https://docs.djangoproject.com/en/4.0/howto/static-files/">How to manage static files
+                        </li>
+                        <li><a href="https://docs.djangoproject.com/en/4.0/topics/http/sessions/">How to use sessions
+                        </li>
+                        <li><a href="https://blog.csdn.net/yutu75/article/details/118692374/">Django 中 render、render_to_response、HttpResponse、JsonResponse、Response 的使用
+                        </li>
+                        <li><a href="https://www.learncodewithmike.com/2020/03/django-administration.html/">[Django教學4]實用的 Django Administration 操作及客製化技巧
+                        </li>
+                        <li><a href="https://stackoverflow.com/questions/27752815/templatedoesnotexist-at-index-html/">Stackoverflow template does not exist
+                        </li>
+                        <li><a href="https://stackoverflow.com/questions/3631556/django-no-such-table-django-session/">Stackoverflow django no such table django session
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Tzuying-Yang</span></strong>
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer><!-- End  Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="assets/vendor/purecounter/purecounter.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/typed.js/typed.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+<style>
+    pre {
+        counter-reset: line-numbering;
+        background: #2c3e50;
+        padding: 12px 0px 14px 0;
+        width: 1000px;
+        color: #ecf0f1;
+        line-height: 140%;
+    }
+</style>
+
+</html>
