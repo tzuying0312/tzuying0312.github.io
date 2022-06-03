@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Redis</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= Mobile nav toggle button ======= -->
+    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="d-flex flex-column">
+            <div class="profile">
+                <a href="index.html"><img src="assets/img/icon/redis.png" alt="" class="img-fluid rounded-circle"></a>
+                <h1 class="text-light"><a href="index.html">Redis</a></h1>
+            </div>
+            <nav id="navbar" class="nav-menu navbar">
+                <ul>
+                    <li><a href="index.html" class="nav-link scrollto"><i class="bx bx-user"></i><span>Home</span></a>
+                </ul>
+            </nav>
+            <ul class="tableofcontent">
+                <li><a href="#background">Background</a></li>
+                <li><a href="#install">Install</a></li>
+                <li><a href="#usage">Usage</a>
+                    <ul>
+                        <li><a href="#run-redis">Run Redis</a></li>
+                        <li><a href="#example">Example</a></li>
+                    </ul>
+                </li>
+                <li><a href="#question">Question</a>
+                    <ul>
+                        <li><a href="#out-of-memory">Out Of Memory</a></li>
+                    </ul>
+                </li>
+                <li><a href="#resource">Resource</a></li>
+            </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <div class="container">
+            <section>
+                <div class="section-title">
+                    <h2 id="background">Background</h2>
+                    <p>Redis 代表 Remote Dictionary Server，是快速的開源記憶體內鍵值資料存放區。 Redis，現在用作資料庫、快取、訊息代理和佇列。</p>
+                    <ul>
+                        <li>效能：所有 Redis 資料都存放在記憶體中，從而實現低延遲和高輸送量的資料存取。與傳統資料庫不同，記憶體內資料儲存不需要存取磁碟，從而將引擎延遲縮減到微秒。因此，記憶體內資料儲存能夠支援更大規模的操作，而且回應時間更快。這項優勢提供超快速的效能，平均讀取和寫入操作時間低於一毫秒，並支援每秒百萬個操作。</li>
+                        <li>案例：快取、聊天、遊戲排行榜</li>
+                    </ul>
+                </div>
+                <div class="section-title">
+                    <h2 id="install">Install</h2>
+                    <div>
+                        <h5 id="install-package">下載套件</h5>
+                        <ul>
+                            <li>Mac <code>brew install redis</code></li>
+                            <li>Linux</li>
+                            <pre>
+
+    sudo apt-get update
+    sudo apt-get install redis
+                            </pre>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-title">
+                    <h2 id="usage">Usage</h2>
+                    <div>
+                        <h5 id="run-redis">Run Redis</h5>
+                        <code>redis-server</code>
+                        <br></br>
+                    </div>
+                    <div>
+                        <h5 id="example">Example</h5>
+                        <p>Python 中暫存方式</p>
+                        <pre>
+
+    import redis
+    redisConn = redis.StrictRedis(host='localhost', port=6379, db=0)
+    redisConn.set('name1', 'yang')  # 設置 name1 對應的值為 yang
+    redisConn.get('name1')  # 取出 name1 對應的值
+    redisConn.set('name1', 'yang', px=3000)  # px 表示過期毫秒時間 ex:3000 毫秒後 name1 變成 None
+    redisConn.set('name1', 'yang', ex=3)  # px 表示過期秒數時間 ex:3 秒後 name1 變成 None
+                        </pre>
+                    </div>
+                </div>
+                <div class="section-title">
+                    <h2 id="question">Question</h2>
+                    <div>
+                        <h5 id="out-of-memory">Out Of Memory</h5>
+                        <ul>
+                            <li>此錯誤會導致速度變慢、報錯、被 linux 其中一個程式刪除。</li>
+                            <li>解法：確認 maxmemory 是 0，如果超出 maxmemory 的規章是 noeviction(不做任何事，所以會報錯)，可以嘗試改 volatile-ttl (刪除最舊的資料)。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-title">
+                    <h2 id="resource">Resource</h2>
+                    <ul>
+                        <li><a href="https://redis.io/docs/getting-started/installation/">Redis 安裝
+                        </a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Tzuying-Yang</span></strong>
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer><!-- End  Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="assets/vendor/purecounter/purecounter.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/typed.js/typed.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+<style>
+    pre {
+        counter-reset: line-numbering;
+        background: #2c3e50;
+        padding: 12px 0px 14px 0;
+        width: 1000px;
+        color: #ecf0f1;
+        line-height: 140%;
+    }
+</style>
+
+</html>
