@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Redis</title>
+    <title>Mitmproxy</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -34,8 +34,9 @@
     <header id="header">
         <div class="d-flex flex-column">
             <div class="profile">
-                <a href="index.html"><img src="assets/img/icon/redis.png" alt="" class="img-fluid rounded-circle"></a>
-                <h1 class="text-light"><a href="index.html">Redis</a></h1>
+                <a href="index.html"><img src="assets/img/icon/mitmproxy.png" alt=""
+                        class="img-fluid rounded-circle"></a>
+                <h1 class="text-light"><a href="index.html">Mitmproxy</a></h1>
             </div>
             <nav id="navbar" class="nav-menu navbar">
                 <ul>
@@ -45,16 +46,12 @@
             <ul class="tableofcontent">
                 <li><a href="#background">Background</a></li>
                 <li><a href="#install">Install</a></li>
+                <ul>
+                    <li><a href="#install-package">Install Package</a></li>
+                    <li><a href="#download-certificate">Download certificate</a></li>
+                    <li><a href="#set-ip">設定代理地址</a></li>
+                </ul>
                 <li><a href="#usage">Usage</a>
-                    <ul>
-                        <li><a href="#run-redis">Run Redis</a></li>
-                        <li><a href="#example">Example</a></li>
-                    </ul>
-                </li>
-                <li><a href="#question">Question</a>
-                    <ul>
-                        <li><a href="#out-of-memory">Out Of Memory</a></li>
-                    </ul>
                 </li>
                 <li><a href="#resource">Resource</a></li>
             </ul>
@@ -66,65 +63,67 @@
             <section>
                 <div class="section-title">
                     <h2 id="background">Background</h2>
-                    <p>Redis 代表 Remote Dictionary Server，是快速的開源記憶體內鍵值資料存放區。 Redis，現在用作資料庫、快取、訊息代理和佇列。</p>
-                    <ul>
-                        <li>效能：所有 Redis
-                            資料都存放在記憶體中，從而實現低延遲和高輸送量的資料存取。與傳統資料庫不同，記憶體內資料儲存不需要存取磁碟，從而將引擎延遲縮減到微秒。因此，記憶體內資料儲存能夠支援更大規模的操作，而且回應時間更快。這項優勢提供超快速的效能，平均讀取和寫入操作時間低於一毫秒，並支援每秒百萬個操作。
-                        </li>
-                        <li>案例：快取、聊天、遊戲排行榜</li>
-                    </ul>
+                    <p>MitmProxy 為一種好用的爬蟲工具，好比是偽裝的中間代理人 Proxy，負責轉遞兩台機器間的封包，在這過程中封包的內容有機會被竊聽甚至竄改，幫你抓到目前連線的所有封包。</p>
+                    <pre><code>
+
+    🌟 Man <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> Middle attack 中間人攻擊
+
+    這種攻擊行為中，駭客能監視您的瀏覽活動。
+    
+    攻擊者能在客戶端與網站之間分別建立獨立的網路，並交換兩端所接收到的資訊，通訊的兩端認為雙方直接對話
+                    </code></pre>
                 </div>
                 <div class="section-title">
                     <h2 id="install">Install</h2>
                     <div>
-                        <h5 id="install-package">下載套件</h5>
+                        <h5 id="install-package">Install Packag</h5>
                         <ul>
-                            <li>Mac <code>brew install redis</code></li>
-                            <li>Linux</li>
-                            <pre>
-
-    sudo apt-get update
-    sudo apt-get install redis
-                            </pre>
+                            <li>Mac: <code>brew install mitmproxy</code></li>
+                            <li>Windows:
+                                <code>download the installer from [mitmproxy.org](https://mitmproxy.org/)</code></li>
+                            <li>Pip: <code>pip install mitmproxy</code></li>
                         </ul>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="download-certificate">Download certificate</h5>
+                        <p>對於 HTTPS 請求，為了能正常抓到請求，需要先安裝證書，若沒安裝證書，無法看到 HTTPS 的網址。</p>
+                        <ol type="1">
+                            <li>先在終端機打開 mitmproxy，指令： <code>mitmproxy</code></li>
+                            <li>Open <a href="http://mitm.it">http://mitm.it/</a></li>
+                            <li>會看到以下畫面，下載需要認證的裝置</li>
+                            <img src="./assets/img/note/mitmproxy_certificates.png" width="15%" />
+                        </ol>
+                        </br>
+                    </div>
+                    <div>
+                        <h5 id="set-ip">設定代理地址</h5>
+                        <p>瀏覽器、終端等的代理地址和端口同一區域網中 mitmproxy 所在電腦的 IP 地址。</p>
+                        <ol type="1">
+                            <li>Mac > 系統偏好設定 > 網路 > 進階 > 代理伺服器 > 網頁代理伺服器(HTTP) > 在網頁代理伺服器輸入 IP 和
+                                Port。安全網頁代理伺服器(HTTPS)也一同設定，如下圖。</li>
+                            <img src="./assets/img/note/mitmproxy_mac.png" width="45%" />
+                            <li>Iphone > 設定 > Wi-Fi > 點擊你要使用 wifi 旁的藍色圖示 > 設定代理伺服器 > 手動 > 在伺服器輸入 IP > 在連接埠輸入 Port，如下圖。
+                            </li>
+                            <img src="./assets/img/note/mitmproxy_iphone.jpg" width="15%" />
+                        </ol>
+                        </br>
                     </div>
                 </div>
                 <div class="section-title">
                     <h2 id="usage">Usage</h2>
-                    <div>
-                        <h5 id="run-redis">Run Redis</h5>
-                        <code>redis-server</code>
-                        <br></br>
-                    </div>
-                    <div>
-                        <h5 id="example">Example</h5>
-                        <p>Python 中暫存方式</p>
-                        <pre>
-
-    import redis
-    redisConn = redis.StrictRedis(host='localhost', port=6379, db=0)
-    redisConn.set('name1', 'yang')  # 設置 name1 對應的值為 yang
-    redisConn.get('name1')  # 取出 name1 對應的值
-    redisConn.set('name1', 'yang', px=3000)  # px 表示過期毫秒時間 ex:3000 毫秒後 name1 變成 None
-    redisConn.set('name1', 'yang', ex=3)  # px 表示過期秒數時間 ex:3 秒後 name1 變成 None
-                        </pre>
-                    </div>
-                </div>
-                <div class="section-title">
-                    <h2 id="question">Question</h2>
-                    <div>
-                        <h5 id="out-of-memory">Out Of Memory</h5>
-                        <ul>
-                            <li>此錯誤會導致速度變慢、報錯、被 linux 其中一個程式刪除。</li>
-                            <li>解法：確認 maxmemory 是 0，如果超出 maxmemory 的規章是 noeviction(不做任何事，所以會報錯)，可以嘗試改 volatile-ttl
-                                (刪除最舊的資料)。</li>
-                        </ul>
-                    </div>
+                    <ul>
+                        <li><code>mitmproxy</code> >> 啟動 (此指令不支援 Windows)</li>
+                        <li><code>mitmproxy -p 8888</code> >> -p 指定 prot</li>
+                        <li><code>mitmproxy -s main.py</code> >> -s 運行你的 py 檔，所有指定的 requets 或 respones 都會經過該 py 檔</li>
+                        <li><code>mitmweb</code> >> 可視化介面</li>
+                        <li><code>mitmdump</code> >> 為 mitmproxy 的命令行模式</li>
+                    </ul>
                 </div>
                 <div class="section-title">
                     <h2 id="resource">Resource</h2>
                     <ul>
-                        <li><a href="https://redis.io/docs/getting-started/installation/">Redis 安裝
+                        <li><a href="https://docs.mitmproxy.org/stable/concepts-certificates/">Certificates
                             </a></li>
                     </ul>
                 </div>

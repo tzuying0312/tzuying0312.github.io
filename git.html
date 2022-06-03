@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -94,11 +94,11 @@
                                     <li style="padding-bottom: 10px;">增加檔案</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;"><code>git add your_filename</code> 
+                                            <li style="padding-bottom: 10px;"><code>git add your_filename</code>
                                                 增加單一檔案進入索引</li>
                                             <li style="padding-bottom: 10px;"><code>git add .</code> 增加全部檔案進入索引</li>
                                             <li style="padding-bottom: 10px;"><code>git status</code> 查詢狀態</li>
-                                            <li style="padding-bottom: 10px;"><code>git commit -m '更新訊息'</code> 
+                                            <li style="padding-bottom: 10px;"><code>git commit -m '更新訊息'</code>
                                                 將索引提交到數據庫</li>
                                         </ul>
                                     </div>
@@ -126,15 +126,15 @@
                                     <li style="padding-bottom: 10px;">還原指令</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;"><code>git reset --hard</code> 
+                                            <li style="padding-bottom: 10px;"><code>git reset --hard</code>
                                                 還原工作目錄與索引，會跟最後一次 commit 保持一樣</li>
                                             <li style="padding-bottom: 10px;">
                                                 <code>git checkout HEAD -- db.sqlite3</code> 同上，但為還原單一檔案
                                             </li>
                                             <li style="padding-bottom: 10px;"><code>git reset HEAD</code> 全部檔案取消索引</li>
-                                            <li style="padding-bottom: 10px;"><code>git reset HEAD your_filename</code> 
+                                            <li style="padding-bottom: 10px;"><code>git reset HEAD your_filename</code>
                                                 同上，但為取消單一檔案索引</li>
-                                            <li style="padding-bottom: 10px;"><code>git checkout your_filename</code> 
+                                            <li style="padding-bottom: 10px;"><code>git checkout your_filename</code>
                                                 恢復單一檔案到最新 commit 狀態</li>
                                         </ul>
                                     </div>
@@ -145,11 +145,11 @@
                                     <li style="padding-bottom: 10px;">還原指令(續)</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;"><code>git reset --hard HEAD^</code> 
+                                            <li style="padding-bottom: 10px;"><code>git reset --hard HEAD^</code>
                                                 刪除最近一次 commit</li>
-                                            <li style="padding-bottom: 10px;"><code>git reset --hard ORIG_HEAD</code> 
+                                            <li style="padding-bottom: 10px;"><code>git reset --hard ORIG_HEAD</code>
                                                 上面語法如果刪除錯了可以再用此語法還原</li>
-                                            <li style="padding-bottom: 10px;"><code>git reset --soft HEAD^</code> 
+                                            <li style="padding-bottom: 10px;"><code>git reset --soft HEAD^</code>
                                                 刪除最近一次 commit，但保留異動內容</li>
                                             <li style="padding-bottom: 10px;"><code>git rm -r --cached .</code> 全部變成未追蹤
                                             </li>
@@ -178,15 +178,23 @@
                                             <li style="padding-bottom: 10px;"><code>git clone url</code> 複製遠端數據庫</li>
                                             <li style="padding-bottom: 10px;"><code>git remote</code> 查詢遠端數據庫</li>
                                             <li style="padding-bottom: 10px;"><code>git remote -v</code> 查詢詳細遠端數據庫</li>
-                                            <li style="padding-bottom: 10px;"><code>git remote 遠端數據庫名 遠端數據庫</code> 刪除 Git 遠端倉庫的 URL </li>
-                                            <li style="padding-bottom: 10px;"><code>git remote rm 遠端數據庫名</code> 切換分支</li>
-                                            <li style="padding-bottom: 10px;"><code>git remote rename 原名稱 新名稱</code> 修改遠端數據庫名稱</li>
-                                            <li style="padding-bottom: 10px;"><code>git push 遠端數據庫名稱 遠端分支名稱</code> 將本地分支推送到遠端分支</li>
-                                            <li style="padding-bottom: 10px;"><code>git pull</code> 將遠端分支拉下來與本地分支進行合併</li>
-                                            <li style="padding-bottom: 10px;"><code>heroku git:remote -a app_name</code> 新增 heroku remote</li>
-                                            <li style="padding-bottom: 10px;"><code>git push remote_name -d branch_name</code> 刪除遠端分支</li>
+                                            <li style="padding-bottom: 10px;"><code>git remote 遠端數據庫名 遠端數據庫</code> 刪除
+                                                Git 遠端倉庫的 URL </li>
+                                            <li style="padding-bottom: 10px;"><code>git remote rm 遠端數據庫名</code> 切換分支
+                                            </li>
+                                            <li style="padding-bottom: 10px;"><code>git remote rename 原名稱 新名稱</code>
+                                                修改遠端數據庫名稱</li>
+                                            <li style="padding-bottom: 10px;"><code>git push 遠端數據庫名稱 遠端分支名稱</code>
+                                                將本地分支推送到遠端分支</li>
+                                            <li style="padding-bottom: 10px;"><code>git pull</code> 將遠端分支拉下來與本地分支進行合併
+                                            </li>
+                                            <li style="padding-bottom: 10px;"><code>heroku git:remote -a app_name</code>
+                                                新增 heroku remote</li>
+                                            <li style="padding-bottom: 10px;">
+                                                <code>git push remote_name -d branch_name</code> 刪除遠端分支</li>
                                             <li style="padding-bottom: 10px;"><code>git push -f</code> 強制推送</li>
-                                            <li style="padding-bottom: 10px;"><code>git push heroku branch_name:master</code> 上傳 heroku 分支</li>
+                                            <li style="padding-bottom: 10px;">
+                                                <code>git push heroku branch_name:master</code> 上傳 heroku 分支</li>
                                         </ul>
                                     </div>
                                 </div>
