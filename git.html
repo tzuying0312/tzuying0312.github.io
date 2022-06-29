@@ -6,8 +6,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Git</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <meta content="Git 為一版本控制的工具。" name="description">
+    <meta content="楊子潁, tzuying0312, redis" name="keywords">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC" rel="stylesheet">
@@ -58,17 +58,17 @@
             <div class="container">
                 <div class="section-title">
                     <h2>新增/還原/忽略</h2>
-                    <ul style="padding-left: 20px;padding-bottom: 10px;">
+                    <ul style="padding-left: 20px;padding-bottom: 3px;">
                         <div class="row">
                             <div class="col">
                                 <div>
-                                    <li style="padding-bottom: 10px;">帳戶設定</li>
+                                    <li>帳戶設定</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;">
+                                            <li>
                                                 <code>git config --global user.name "your name"</code> 設定姓名
                                             </li>
-                                            <li style="padding-bottom: 10px;">
+                                            <li>
                                                 <code>git config --global user.email "your email"</code> 設定電子郵件
                                             </li>
                                         </ul>
@@ -77,11 +77,11 @@
                             </div>
                             <div class="col">
                                 <div>
-                                    <li style="padding-bottom: 10px;">查詢資訊</li>
+                                    <li>查詢資訊</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;"><code>git version</code> 查詢版本</li>
-                                            <li style="padding-bottom: 10px;"><code>git config --list</code> 查詢設定列表</li>
+                                            <li><code>git version</code> 查詢版本</li>
+                                            <li><code>git config --list</code> 查詢設定列表</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -91,14 +91,14 @@
                         <div class="row">
                             <div class="col">
                                 <div>
-                                    <li style="padding-bottom: 10px;">增加檔案</li>
+                                    <li>增加檔案</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;"><code>git add your_filename</code>
+                                            <li><code>git add your_filename</code>
                                                 增加單一檔案進入索引</li>
-                                            <li style="padding-bottom: 10px;"><code>git add .</code> 增加全部檔案進入索引</li>
-                                            <li style="padding-bottom: 10px;"><code>git status</code> 查詢狀態</li>
-                                            <li style="padding-bottom: 10px;"><code>git commit -m '更新訊息'</code>
+                                            <li><code>git add .</code> 增加全部檔案進入索引</li>
+                                            <li><code>git status</code> 查詢狀態</li>
+                                            <li><code>git commit -m '更新訊息'</code>
                                                 將索引提交到數據庫</li>
                                         </ul>
                                     </div>
@@ -106,14 +106,13 @@
                             </div>
                             <div class="col">
                                 <div>
-                                    <li style="padding-bottom: 10px;">忽略</li>
+                                    <li>忽略</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;">新建 .gitignore 檔案，裡面存入要忽略的檔案</li>
-                                            <li style="padding-bottom: 10px;"><code>index.html</code> 忽略 index.html 檔案
-                                            </li>
-                                            <li style="padding-bottom: 10px;"><code>*.html</code> 忽略全部 HTML 檔案</li>
-                                            <li style="padding-bottom: 10px;"><code>css/</code> 針對 css 資料夾忽略</li>
+                                            <li>新建 .gitignore 檔案，裡面存入要忽略的檔案</li>
+                                            <li><code>index.html</code> 忽略 index.html 檔案</li>
+                                            <li><code>*.html</code> 忽略全部 HTML 檔案</li>
+                                            <li><code>css/</code> 針對 css 資料夾忽略</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -123,18 +122,18 @@
                         <div class="row">
                             <div class="col">
                                 <div>
-                                    <li style="padding-bottom: 10px;">還原指令</li>
+                                    <li>還原指令</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;"><code>git reset --hard</code>
+                                            <li><code>git reset --hard</code>
                                                 還原工作目錄與索引，會跟最後一次 commit 保持一樣</li>
-                                            <li style="padding-bottom: 10px;">
+                                            <li>
                                                 <code>git checkout HEAD -- db.sqlite3</code> 同上，但為還原單一檔案
                                             </li>
-                                            <li style="padding-bottom: 10px;"><code>git reset HEAD</code> 全部檔案取消索引</li>
-                                            <li style="padding-bottom: 10px;"><code>git reset HEAD your_filename</code>
+                                            <li><code>git reset HEAD</code> 全部檔案取消索引</li>
+                                            <li><code>git reset HEAD your_filename</code>
                                                 同上，但為取消單一檔案索引</li>
-                                            <li style="padding-bottom: 10px;"><code>git checkout your_filename</code>
+                                            <li><code>git checkout your_filename</code>
                                                 恢復單一檔案到最新 commit 狀態</li>
                                         </ul>
                                     </div>
@@ -142,18 +141,18 @@
                             </div>
                             <div class="col">
                                 <div>
-                                    <li style="padding-bottom: 10px;">還原指令(續)</li>
+                                    <li>還原指令(續)</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;"><code>git reset --hard HEAD^</code>
+                                            <li><code>git reset --hard HEAD^</code>
                                                 刪除最近一次 commit</li>
-                                            <li style="padding-bottom: 10px;"><code>git reset --hard ORIG_HEAD</code>
+                                            <li><code>git reset --hard ORIG_HEAD</code>
                                                 上面語法如果刪除錯了可以再用此語法還原</li>
-                                            <li style="padding-bottom: 10px;"><code>git reset --soft HEAD^</code>
+                                            <li><code>git reset --soft HEAD^</code>
                                                 刪除最近一次 commit，但保留異動內容</li>
-                                            <li style="padding-bottom: 10px;"><code>git rm -r --cached .</code> 全部變成未追蹤
+                                            <li><code>git rm -r --cached .</code> 全部變成未追蹤
                                             </li>
-                                            <li style="padding-bottom: 10px;"><code>rm -rf .git</code> 刪除 git</li>
+                                            <li><code>rm -rf .git</code> 刪除 git</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -168,33 +167,35 @@
             <div class="container">
                 <div class="section-title">
                     <h2>遠端數據庫</h2>
-                    <ul style="padding-left: 20px;padding-bottom: 10px;">
+                    <ul style="padding-left: 20px;padding-bottom: 3px;">
                         <div class="row">
                             <div class="col">
                                 <div>
-                                    <li style="padding-bottom: 10px;">遠端數據庫</li>
+                                    <li>遠端數據庫</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;"><code>git clone url</code> 複製遠端數據庫</li>
-                                            <li style="padding-bottom: 10px;"><code>git remote</code> 查詢遠端數據庫</li>
-                                            <li style="padding-bottom: 10px;"><code>git remote -v</code> 查詢詳細遠端數據庫</li>
-                                            <li style="padding-bottom: 10px;"><code>git remote 遠端數據庫名 遠端數據庫</code> 刪除
+                                            <li><code>git clone url</code> 複製遠端數據庫</li>
+                                            <li><code>git remote</code> 查詢遠端數據庫</li>
+                                            <li><code>git remote -v</code> 查詢詳細遠端數據庫</li>
+                                            <li><code>git remote 遠端數據庫名 遠端數據庫</code> 刪除
                                                 Git 遠端倉庫的 URL </li>
-                                            <li style="padding-bottom: 10px;"><code>git remote rm 遠端數據庫名</code> 切換分支
+                                            <li><code>git remote rm 遠端數據庫名</code> 切換分支
                                             </li>
-                                            <li style="padding-bottom: 10px;"><code>git remote rename 原名稱 新名稱</code>
+                                            <li><code>git remote rename 原名稱 新名稱</code>
                                                 修改遠端數據庫名稱</li>
-                                            <li style="padding-bottom: 10px;"><code>git push 遠端數據庫名稱 遠端分支名稱</code>
+                                            <li><code>git push 遠端數據庫名稱 遠端分支名稱</code>
                                                 將本地分支推送到遠端分支</li>
-                                            <li style="padding-bottom: 10px;"><code>git pull</code> 將遠端分支拉下來與本地分支進行合併
+                                            <li><code>git pull</code> 將遠端分支拉下來與本地分支進行合併
                                             </li>
-                                            <li style="padding-bottom: 10px;"><code>heroku git:remote -a app_name</code>
+                                            <li><code>heroku git:remote -a app_name</code>
                                                 新增 heroku remote</li>
-                                            <li style="padding-bottom: 10px;">
-                                                <code>git push remote_name -d branch_name</code> 刪除遠端分支</li>
-                                            <li style="padding-bottom: 10px;"><code>git push -f</code> 強制推送</li>
-                                            <li style="padding-bottom: 10px;">
-                                                <code>git push heroku branch_name:master</code> 上傳 heroku 分支</li>
+                                            <li>
+                                                <code>git push remote_name -d branch_name</code> 刪除遠端分支
+                                            </li>
+                                            <li><code>git push -f</code> 強制推送</li>
+                                            <li>
+                                                <code>git push heroku branch_name:master</code> 上傳 heroku 分支
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -209,23 +210,23 @@
             <div class="container">
                 <div class="section-title">
                     <h2>分支/標籤/暫存</h2>
-                    <ul style="padding-left: 20px;padding-bottom: 10px;">
+                    <ul style="padding-left: 20px;padding-bottom: 3px;">
                         <div class="row">
                             <div class="col">
                                 <div>
-                                    <li style="padding-bottom: 10px;">分支</li>
+                                    <li>分支</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;"><code>git branch</code> 查詢所有分支</li>
-                                            <li style="padding-bottom: 10px;"><code>git branch -a</code> 查詢詳細所有分支</li>
-                                            <li style="padding-bottom: 10px;"><code>git branch 分支名稱</code> 新增分支</li>
-                                            <li style="padding-bottom: 10px;"><code>git checkout 前四碼</code> 將 HEAD 指向該
+                                            <li><code>git branch</code> 查詢所有分支</li>
+                                            <li><code>git branch -a</code> 查詢詳細所有分支</li>
+                                            <li><code>git branch 分支名稱</code> 新增分支</li>
+                                            <li><code>git checkout 前四碼</code> 將 HEAD 指向該
                                                 commit 還原到該 commit</li>
-                                            <li style="padding-bottom: 10px;"><code>git checkout 分支名稱</code> 切換分支</li>
-                                            <li style="padding-bottom: 10px;"><code>git merge 分支名稱</code> 合併指定分支到目前的分支
+                                            <li><code>git checkout 分支名稱</code> 切換分支</li>
+                                            <li><code>git merge 分支名稱</code> 合併指定分支到目前的分支
                                             </li>
-                                            <li style="padding-bottom: 10px;"><code>git branch -d 分支名稱</code> 刪除分支</li>
-                                            <li style="padding-bottom: 10px;">註:可透過 <code>git log</code> 查看 commit 前四碼
+                                            <li><code>git branch -d 分支名稱</code> 刪除分支</li>
+                                            <li>註:可透過 <code>git log</code> 查看 commit 前四碼
                                             </li>
                                         </ul>
                                     </div>
@@ -236,28 +237,28 @@
                         <div class="row">
                             <div class="col">
                                 <div>
-                                    <li style="padding-bottom: 10px;">暫存</li>
+                                    <li>暫存</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;"><code>git stash</code> 暫時儲存當前目錄</li>
-                                            <li style="padding-bottom: 10px;"><code>git stash list</code> 瀏覽 stash 列表
+                                            <li><code>git stash</code> 暫時儲存當前目錄</li>
+                                            <li><code>git stash list</code> 瀏覽 stash 列表
                                             </li>
-                                            <li style="padding-bottom: 10px;"><code>git stash pop</code> 還原暫存</li>
-                                            <li style="padding-bottom: 10px;"><code>git stash drop</code> 清除最新暫存</li>
-                                            <li style="padding-bottom: 10px;"><code>git stash clear</code> 清除全部暫存</li>
+                                            <li><code>git stash pop</code> 還原暫存</li>
+                                            <li><code>git stash drop</code> 清除最新暫存</li>
+                                            <li><code>git stash clear</code> 清除全部暫存</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div>
-                                    <li style="padding-bottom: 10px;">標籤</li>
+                                    <li>標籤</li>
                                     <div class="card card-body">
                                         <ul>
-                                            <li style="padding-bottom: 10px;"><code>git tag</code> 查詢標籤 </li>
-                                            <li style="padding-bottom: 10px;"><code>git tag -n</code> 查詢詳細標籤</li>
-                                            <li style="padding-bottom: 10px;"><code>git tag -d 標籤名稱</code> 刪除標籤</li>
-                                            <li style="padding-bottom: 10px;"><code>git checkout 標籤名稱</code> 切換到標籤的
+                                            <li><code>git tag</code> 查詢標籤 </li>
+                                            <li><code>git tag -n</code> 查詢詳細標籤</li>
+                                            <li><code>git tag -d 標籤名稱</code> 刪除標籤</li>
+                                            <li><code>git checkout 標籤名稱</code> 切換到標籤的
                                                 commit</li>
                                         </ul>
                                     </div>
