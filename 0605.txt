@@ -1,0 +1,99 @@
+### https://snyk.docs.apiary.io/#reference/reporting-api/latest-issues/get-list-of-issues
+try {
+    $EndPoint = "https://api.snyk.io/v1/reporting/issues/?from=2023-06-01&to=2023-06-05"
+    $Headers = @{ 
+        'Content-Type' = 'application/json'
+        'Authorization' = 'token token-api'
+    }
+    $InFile = @'
+    {
+        "filters": {
+            "orgs": ["orgs-id"],
+            "severity": [
+                "critical",
+                "high",
+                "medium",
+                "low"
+            ],
+            "exploitMaturity": [
+                "mature",
+                "proof-of-concept",
+                "no-known-exploit",
+                "no-data"
+            ],
+            "types": [
+                "vuln",
+                "license",
+                "configuration"
+            ],
+            "languages": [
+                "node",
+                "javascript",
+                "ruby",
+                "java",
+                "scala",
+                "python",
+                "golang",
+                "php",
+                "dotnet",
+                "swift-objective-c",
+                "elixir",
+                "docker",
+                "linux",
+                "dockerfile",
+                "terraform",
+                "kubernetes",
+                "helm",
+                "cloudformation",
+                "arm"
+            ],
+            "projects": [],
+            "issues": [],
+            "identifier": "",
+            "ignored": false,
+            "patched": false,
+            "fixable": false,
+            "isFixed": false,
+            "isUpgradable": false,
+            "isPatchable": false,
+            "isPinnable": false,
+            "priorityScore": {
+                "min": 0,
+                "max": 1000
+            }
+        }
+    }
+'@
+    $Response = Invoke-RestMethod $EndPoint -Headers $Headers -Body ($InFile) -Method 'Post' -ContentType "application/json"
+    Write-Output $Response
+    }
+catch {
+    Write-Output $Error[0]
+}
+
+
+---------------
+
+try {
+    $EndPoint = "https://api.snyk.io/v1/user/me"
+    $Headers = @{ 
+        'Content-Type' = 'application/json'
+        'Authorization' = 'token token-api'
+    }
+    $Response = Invoke-RestMethod $EndPoint -Headers $Headers 
+    Write-Output $Response
+}
+catch {
+    Write-Output $Error[0]
+}
+
+---------------
+
+try {
+    $EndPoint = "https://snyk.io/"
+    $Response = Invoke-WebRequest $EndPoint
+    Write-Output $Response
+}
+catch {
+    Write-Output $Error[0]
+}
